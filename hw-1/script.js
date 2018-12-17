@@ -12,15 +12,16 @@ const enter = prompt('Введите логин');
 
 if (!enter){
   alert(MESSAGE_USER_CANCELED);
-} else if (enter !== adminLogin){
-  alert(MESSAGE_INVALID_LOGIN);
-} else if (enter === adminLogin){
-    const enterPassword = prompt(ENTER_PASSWORD);
-    if (!adminPassword){
-      alert(MESSAGE_USER_CANCELED);
-    } else if (enterPassword !== adminPassword){
-      alert(MESSAGE_INVALID_LOGIN);
-    } else if (enterPassword === adminPassword){
-      alert(MESSAGE_WELCOME);
-    }
+}else if (enter === adminLogin){
+  const enterPassword = prompt(ENTER_PASSWORD);
+  if (!adminPassword){
+    alert(MESSAGE_USER_CANCELED);
+  } else if (enterPassword !== adminPassword){
+    alert(MESSAGE_INVALID_LOGIN);
+  } else if (enterPassword === adminPassword){
+    alert(MESSAGE_WELCOME);
+  }
 }
+  else{
+  alert(MESSAGE_INVALID_LOGIN);
+  }
