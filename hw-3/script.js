@@ -8,8 +8,9 @@ const MESSAGE_INVALID_LOGIN = 'Логин должен быть от 4 до 16 �
 const MESSAGE_LOGIN_USED = 'Такой логин уже используется!';
 
 const isLoginValid = function(login) {
-  if(login.length < min && login.length > max){
-  } return false;
+  if(login.length > min && login.length < max){
+  return true;
+  }
 };
 
 const isLoginUnique = function(allLogins, login) {
