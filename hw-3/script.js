@@ -10,13 +10,13 @@ const MESSAGE_LOGIN_USED = 'Такой логин уже используетс�
 const isLoginValid = function(login) {
   if(login.length > min && login.length < max){
   return true;
-  }
+  } else return false;
 };
 
 const isLoginUnique = function(allLogins, login) {
   if(allLogins.includes(login)){
     return false;
-  }
+  } else return true;
 };
 
 const addLogin = function(allLogins, login) {
