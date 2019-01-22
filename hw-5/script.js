@@ -44,9 +44,10 @@ const Notepad = function Notepad(notes = []) {
       return filteredNotes;
     }
   };
-  this.updateNoteContent = function(id, newTitle){
+  this.updateNoteContent = function(id, {...spread}){
     const note = this.findNoteById(id);
-    note.title = newTitle;
+//    note.title = ;
+    note.title = {...spread}
   };
   this.deleteNote = function(id){
     for(let i = 0; i < this.notes.length; i += 1){
