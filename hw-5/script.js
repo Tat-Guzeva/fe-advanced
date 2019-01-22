@@ -29,8 +29,8 @@ const Notepad = function Notepad(notes = []) {
       const hasQuery = noteContent.toLowerCase().includes(query.toLowerCase());
       if(hasQuery){
         filteredNotes.push(note);
-        return filteredNotes;
       };
+      return filteredNotes;
     };
   };
   this.filterNotesByPriority = function(priority = ''){
@@ -40,8 +40,8 @@ const Notepad = function Notepad(notes = []) {
       const noteId = `${note.id}`;
       if(noteId){
         filteredNotes.push(note);
-        return filteredNotes;
       }
+      return filteredNotes;
     }
   };
   this.updateNoteContent = function(id, newTitle){
