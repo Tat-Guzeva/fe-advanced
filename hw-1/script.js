@@ -1,6 +1,7 @@
-'use strict';
+"use strict";
 
-{/* Старая домашка
+{
+  /* Старая домашка
 const adminLogin = 'admin';
 const adminPassword = 'm4ng0h4ckz';
 
@@ -29,19 +30,18 @@ if (!enter){
 */
 }
 // Задача 1
-const ADMIN_PASSWORD = 'm4ng0h4ckz';
+const ADMIN_PASSWORD = "m4ng0h4ckz";
 let message;
 
-const userInput = prompt('Введите пароль');
-if(!userInput){
-  message = 'Отменено пользователем!';
-} else if (userInput !== ADMIN_PASSWORD){
-  message = 'Доступ запрещен, неверный пароль!';
-} else{
-  message = 'Добро пожаловать!';
+const userInput = prompt("Введите пароль");
+if (!userInput) {
+  message = "Отменено пользователем!";
+} else if (userInput !== ADMIN_PASSWORD) {
+  message = "Доступ запрещен, неверный пароль!";
+} else {
+  message = "Добро пожаловать!";
 }
 alert(message);
-
 
 // Задача 2
 /*const sredits = 23580;
