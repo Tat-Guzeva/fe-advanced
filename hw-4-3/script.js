@@ -29,11 +29,13 @@ const notepad = {
 
     if(!note) return;
     note.title = updatedContent.title;
+    return note;
   },
   updateNotePriority(id, priority) {
     const note = this.findNoteById(id);
     if(!note) return;
     note.priority = priority;
+    return note;
   },
   filterNotesByQuery(query) {
     const filteredNotes = [];
