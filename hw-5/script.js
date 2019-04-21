@@ -2,72 +2,76 @@
 
 const Notepad = function Notepad(notes = []) {
   this.notes = notes;
-};
 
-Notepad.prototype.getNotes = function() {
-  return this.notes;
-};
+  this.getNotes = function() {
+    return this.notes;
+  };
 
-Notepad.prototype.saveNote = function(note) {
-  this.notes.push(note);
-};
+  this.saveNote = function(note) {
+    this.notes.push(note);
+  };
 
-Notepad.prototype.findNoteById = function(id) {
-  for (const note of this.notes) {
-    if (note.id === id) {
-      return note;
+  this.findNoteById = function(id) {
+    for (const note of this.notes) {
+      if (note.id === id) {
+        return note;
+      }
     }
-  }
-};
+  };
 
-Notepad.prototype.updateNotePriority = function(id, priority) {
-  const note = this.findNoteById(id);
-  if (!note) return;
-  note.priority = priority;
-  return note;
-};
+  this.updateNotePriority = function(id, priority) {
+    const note = this.findNoteById(id);
+    if (!note) return;
+    note.priority = priority;
+    return note;
+  };
 
-Notepad.prototype.filterNotesByQuery = function(query) {
-  const filteredNotes = [];
+  this.filterNotesByQuery = function(query) {
+    const filteredNotes = [];
 
-  for (const note of this.notes) {
-    const noteContent = `${note.title} ${note.body}`;
-    const hasQuery = noteContent.toLowerCase().includes(query);
-    if (hasQuery) {
-      filteredNotes.push(note);
+    for (const note of this.notes) {
+      const noteContent = `${note.title} ${note.body}`;
+      const hasQuery = noteContent.toLowerCase().includes(query);
+      if (hasQuery) {
+        filteredNotes.push(note);
+      }
     }
-  }
-  return filteredNotes;
-};
+    return filteredNotes;
+  };
 
-Notepad.prototype.filterNotesByPriority = function(priority) {
-  const filteredNotes = [];
+  this.filterNotesByPriority = function(priority) {
+    const filteredNotes = [];
 
-  for (const note of this.notes) {
-    if (note.priority === priority) {
-      filteredNotes.push(note);
+    for (const note of this.notes) {
+      if (note.priority === priority) {
+        filteredNotes.push(note);
+      }
     }
-  }
-  return filteredNotes;
-};
+    return filteredNotes;
+  };
 
-Notepad.prototype.updateNoteContent = function(id, updatedContent) {
-  const note = this.findNoteById(id);
-
-  if (!note) return;
-  note.title = updatedContent.title;
-  return note;
-};
-
-Notepad.prototype.deleteNote = function(id) {
-  for (let i = 0; i < this.notes.length; i += 1) {
-    const note = this.notes[i];
-
-    if (note.id === id) {
-      this.notes.splice(i, 1);
-      return;
+  this.updateNoteContent = function(id, updatedContent) {
+    const note = this.findNoteById(id);
+    if (!note) return;
+    if (updatedContent.hasOwnProperty("title")) {
+      note.title = updatedContent.title;
     }
-  }
+    if (updatedContent.hasOwnProperty("body")) {
+      note.body = updatedContent.body;
+    }
+    return note;
+  };
+
+  this.deleteNote = function(id) {
+    for (let i = 0; i < this.notes.length; i += 1) {
+      const note = this.notes[i];
+
+      if (note.id === id) {
+        this.notes.splice(i, 1);
+        return;
+      }
+    }
+  };
 };
 
 // Добавляем статическое свойство, в котором храним приоритеты.
