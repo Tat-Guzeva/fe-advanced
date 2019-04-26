@@ -9,6 +9,7 @@ const Notepad = function Notepad(notes = []) {
 
   this.saveNote = function(note) {
     this.notes.push(note);
+    return notes;
   };
 
   this.findNoteById = function(id) {
