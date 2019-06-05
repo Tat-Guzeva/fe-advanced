@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 {
   /* Старая домашка
@@ -30,16 +30,21 @@ if (!enter){
 */
 }
 // Задача 1
-const ADMIN_PASSWORD = "m4ng0h4ckz";
+const ADMIN_PASSWORD = 'm4ng0h4ckz';
+const ENTER_PASSWORD = 'Введите пароль';
+const MESSAGE_USER_CANCELED = 'Отменено пользователем!';
+const MESSAGE_INVALID_LOGIN = 'Доступ запрещен, неверный логин!';
+const MESSAGE_WELCOME = 'Добро пожаловать!';
+
 let message;
 
-const userInput = prompt("Введите пароль");
+const userInput = prompt(ENTER_PASSWORD);
 if (!userInput) {
-  message = "Отменено пользователем!";
+  message = MESSAGE_USER_CANCELED;
 } else if (userInput !== ADMIN_PASSWORD) {
-  message = "Доступ запрещен, неверный пароль!";
+  message = MESSAGE_INVALID_LOGIN;
 } else {
-  message = "Добро пожаловать!";
+  message = MESSAGE_WELCOME;
 }
 alert(message);
 
